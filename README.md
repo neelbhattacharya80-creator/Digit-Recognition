@@ -181,8 +181,7 @@ This implementation clearly demonstrates the advantages of deeper convolutional 
 Prediction examples for the custom CNN can be found in:
 
 ```
-preds_custom_cnn
-<img width="1200" height="450" alt="image" src="https://github.com/user-attachments/assets/a447dd6f-fafd-45f9-807e-11f5761c3bf6" />
+/preds_custom_cnn
 
 ```
 
