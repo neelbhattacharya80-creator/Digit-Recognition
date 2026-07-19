@@ -79,7 +79,7 @@ class CNN(nn.Module):
                 batch_X, batch_Y = batch_X.to(self.device), batch_Y.to(self.device)
 
                 self.optimizer.zero_grad()
-                outputs = self(batch_X)  # Calls self.forward(batch_X) natively
+                outputs = self(batch_X)
                 loss = self.criterion(outputs, batch_Y)
                 loss.backward()
                 self.optimizer.step()
@@ -98,7 +98,7 @@ class CNN(nn.Module):
         return np.mean(preds == Y) * 100
 
     def predict(self, X):
-        self.eval()  # Set self to evaluation mode
+        self.eval()  # Set to evaluation mode
         with torch.no_grad():
             X_tensor = torch.tensor(X, dtype=torch.float32).to(self.device)
             logits = self(X_tensor)
