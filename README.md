@@ -6,7 +6,7 @@ A complete implementation of handwritten digit recognition using three progressi
 * **Convolutional Neural Network (NumPy)**
 * **Convolutional Neural Network (PyTorch)**
 
-The objective of this project was not simply to classify MNIST digits, but to understand how modern neural networks work internally by implementing forward propagation, backpropagation, optimization, and image preprocessing from scratch before comparing the results with a production deep learning framework.
+The objective of this project was not simply to understand how modern neural networks work internally by implementing forward propagation, backpropagation, optimization, and image preprocessing from scratch before comparing the results with a production deep learning framework.
 
 ---
 
@@ -14,7 +14,7 @@ The objective of this project was not simply to classify MNIST digits, but to un
 
 The project began with a fully connected neural network (MLP) implemented entirely in NumPy, including manually derived backpropagation. While the model achieved **98% test accuracy**, it struggled with real handwritten images because flattening an image removes all spatial information.
 
-To address these limitations, I implemented a custom CNN from scratch. This required deriving convolutional backpropagation, implementing convolution efficiently using the **im2col** technique, and optimizing the code to avoid expensive Python operations wherever possible. Although the network was intentionally shallow due to implementation complexity, it generalized noticeably better to real images.
+To address these limitations, I implemented a custom CNN from scratch. This required deriving convolutional backpropagation, implementing convolution efficiently using the **im2col** technique, and optimizing the code to avoid expensive Python operations wherever possible. Although the network was shallow due to implementation complexity of computing gradients for multiple layers, it generalized better to real images.
 
 Finally, I recreated the architecture using PyTorch to compare a framework implementation against the custom models. The deeper network achieved **99% test accuracy** while producing much higher confidence on real-world inputs.
 
@@ -46,7 +46,7 @@ This project significantly improved both my mathematical understanding and imple
 
 ### PyTorch CNN
 
-* Learned how high-level frameworks abstract neural network implementation
+* Pytorch fluency
 * Built and trained a deeper CNN using GPU acceleration when available
 * Compared framework performance against a manual implementation
 * Observed the practical benefits of deeper architectures
@@ -87,7 +87,7 @@ Instead of treating every pixel independently, convolution allows filters to lea
 
 The largest challenge was computational efficiency.
 
-A straightforward implementation using nested Python loops was prohibitively slow, so convolution was rewritten using the **im2col** technique. Image patches are extracted into columns before performing convolution as a single matrix multiplication, replacing thousands of small operations with optimized linear algebra.
+A straightforward implementation using nested Python loops was extremely slow, so convolution was rewritten using the **im2col** technique. Image patches are extracted into columns before performing convolution as a single matrix multiplication, replacing thousands of small operations with optimized linear algebra.
 
 Patch extraction still requires looping through the image, which remains the primary performance bottleneck.
 
